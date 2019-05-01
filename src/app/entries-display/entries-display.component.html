@@ -1,0 +1,14 @@
+<div class="container">
+  <div style="text-align:center">
+    <h3>
+      Your Diary Entries
+    </h3>
+  </div>
+  <div *ngFor="let entry of entries">
+    <div *ngIf="entries.length>0" >
+      <h4> {{entry.heading}} </h4>
+      <p> {{entry.entry}} </p>
+      <small> {{entry.date}} </small>
+    </div>
+  </div>
+</div>  
