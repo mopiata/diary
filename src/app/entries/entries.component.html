@@ -2,18 +2,29 @@
   <form #diaryForm='ngForm' (ngSubmit)="entryAdd()">
     <div class="form-group">
       <label for="heading" class="heading">Heading</label>
-      <input id="heading" name="heading" [(ngModel)]="newEntry.heading" class="form-control form-control-lg" type="text" placeholder="Enter your heading">
+      <input required #heading="ngModel" [class.is-invalid]="heading.invalid && heading.touched" 
+        id="heading" name="heading" [(ngModel)]="newEntry.heading" class="form-control form-control-lg" 
+        type="text" placeholder="Enter your heading">
+
+      <small [class.d-none]="heading.valid || heading.untouched" class="text-danger">Heading is required.</small>
     </div>
     <div class="form-group">
       <label for="diary-entry">Entry</label>
-      <textarea class="form-control" id="diary-entry" [(ngModel)]="newEntry.entry" name="diary-entry" placeholder="Your thoughts today" rows="3"></textarea>
+      <textarea required #diaryEntry="ngModel" [class.is-invalid]="diaryEntry.invalid && diaryEntry.touched" 
+        class="form-control" id="diary-entry" [(ngModel)]="newEntry.entry" 
+        name="diary-entry" placeholder="Your thoughts today" rows="3"></textarea>
+      
+      <small [class.d-none]="diaryEntry.valid || diaryEntry.untouched" class="text-danger">Diary entry is required.</small>
     </div>
     <div class="form-group">
       <label>Entry Date</label>
-      <input type="date" name="entry-date" [(ngModel)]="newEntry.date" class="form-control">
+      <input required #date="ngModel" [class.is-invalid]="date.invalid && date.touched" 
+        type="date" name="entry-date" [(ngModel)]="newEntry.date" 
+        class="form-control">
+      <small [class.d-none]="date.valid || date.untouched" class="text-danger">Date is required.</small>
     </div>
 
-    <button class="btn btn-success" type="submit">Submit</button>
+    <button [disabled]=diaryForm.form.invalid class="btn btn-success" type="submit">Submit</button>
   </form>
 
   
