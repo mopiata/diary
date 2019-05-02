@@ -8,11 +8,19 @@ import { Diary } from "../diary";
 })
 export class EntriesDisplayComponent implements OnInit {
 
-  @Input() entry:Diary;
+  @Input() entries:Diary[];  
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.entries);
+  }
+  entryDelete(toDelete:boolean, index){
+    toDelete=confirm(`Are you sure you want to delete ${this.entries[index].name}`);
+
+    if(toDelete){
+      this.entries.splice(index,1);
+    }
   }
 
 }

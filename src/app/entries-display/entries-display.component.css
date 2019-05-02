@@ -1,0 +1,19 @@
+.entry-display{
+  margin-bottom: 50px;
+}
+.heading{
+  padding:10px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+.entry{
+  padding-left: 10px;
+}
+.date{
+  padding-left: 10px;
+}
+.delete{
+  float:right;
+  font-size:20px;
+  font-weight: lighter;
+}

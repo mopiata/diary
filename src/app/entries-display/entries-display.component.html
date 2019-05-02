@@ -4,11 +4,11 @@
       Your Diary Entries
     </h3>
   </div>
-  <div *ngFor="let entry of entries">
-    <div *ngIf="entries.length>0" >
-      <h4> {{entry.heading}} </h4>
-      <p> {{entry.entry}} </p>
-      <small> {{entry.date}} </small>
-    </div>
+  <div *ngFor="let entry of entries; let i=index">
+    <div *ngIf="entries.length>0" class="entry-display">
+      <h4 appHighlight class="heading"> {{entry.heading}} <span (click) = 'entryDelete(true,i)' class="delete">X Delete</span></h4>
+      <p class="entry"> {{entry.entry}} </p>
+      <small class="date"> {{entry.date | date}} </small>
+      <hr>
   </div>
 </div>  

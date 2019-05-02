@@ -11,7 +11,7 @@ export class EntriesComponent implements OnInit {
   @ViewChild('diaryForm') formValues;
 
   newEntry= new Diary(0,"","",new Date());
-  entries=[];
+  entries = [new Diary(0, "Test", "Testing", new Date(2018, 3, 14))];
   
   constructor() { }
 
@@ -25,9 +25,10 @@ export class EntriesComponent implements OnInit {
     var heading = this.newEntry.heading;
     var entry = this.newEntry.entry ;
     var date = this.newEntry.date;
+    var test=new Diary(id, heading, entry, date)
     
     this.entries.push(new Diary(id, heading, entry, date));
-
+    console.log(this.entries);
     this.formValues.resetForm();
     
   }
