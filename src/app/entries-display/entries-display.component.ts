@@ -16,7 +16,7 @@ export class EntriesDisplayComponent implements OnInit {
     console.log(this.entries);
   }
   entryDelete(toDelete:boolean, index){
-    toDelete=confirm(`Are you sure you want to delete ${this.entries[index].name}`);
+    toDelete=confirm(`Are you sure you want to delete ${this.entries[index].heading}`);
 
     if(toDelete){
       this.entries.splice(index,1);
